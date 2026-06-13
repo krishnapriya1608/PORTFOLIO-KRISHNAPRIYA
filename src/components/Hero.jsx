@@ -119,13 +119,47 @@ export default function Hero() {
               className="relative"
             >
               {/* Avatar ring */}
-              <div className="w-80 h-80 rounded-full p-1 bg-gradient-to-r from-teal-500 via-violet-500 to-pink-500">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-900">
-                  <img
-                    src='/profile.PNG'
-                    alt="Krishna Priya"
-                    className="w-full h-full object-cover"
-                  />
+              <div className="relative w-80 h-80 rounded-full p-1 bg-gradient-to-r from-teal-500 via-violet-500 to-pink-500">
+                <div className="relative w-full h-full rounded-full bg-slate-950 border-4 border-slate-900">
+
+                  {/* Top */}
+                  <div className="absolute top-6 left-1/2 -translate-x-1/2">
+                    <span className="px-3 py-1 rounded-full bg-slate-800 text-cyan-400 text-sm font-medium">
+                      React
+                    </span>
+                  </div>
+
+                  {/* Left */}
+                  <div className="absolute left-6 top-1/2 -translate-y-1/2">
+                    <span className="px-3 py-1 rounded-full bg-slate-800 text-green-400 text-sm font-medium">
+                      MongoDB
+                    </span>
+                  </div>
+
+                  {/* Right */}
+                  <div className="absolute right-6 top-1/2 -translate-y-1/2">
+                    <span className="px-3 py-1 rounded-full bg-slate-800 text-lime-400 text-sm font-medium">
+                      Node.js
+                    </span>
+                  </div>
+
+                  {/* Bottom Left */}
+                  <div className="absolute left-12 bottom-10">
+                    <span className="px-3 py-1 rounded-full bg-slate-800 text-yellow-400 text-sm font-medium">
+                      Express
+                    </span>
+                  </div>
+
+                  {/* Bottom Right */}
+                  <div className="absolute right-12 bottom-10">
+                    <span className="px-3 py-1 rounded-full bg-slate-800 text-purple-400 text-sm font-medium">
+                      Python
+                    </span>
+                  </div>
+
+                  {/* Center */}
+                  
+
                 </div>
               </div>
 
