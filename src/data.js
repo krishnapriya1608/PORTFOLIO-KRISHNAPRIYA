@@ -1,6 +1,6 @@
-import airpay from "./assests/airpaymoney.png"
-import luminar from './assests/Luminar.png'
-import entri from './assests/Entri.png'
+import airpay from "./assets/airpaymoney.png"
+import luminar from './assets/Luminar.png'
+import entri from './assets/Entri.png'
 export const data = {
   name: "Krishnapriya ",
   role: "Full Stack Developer",

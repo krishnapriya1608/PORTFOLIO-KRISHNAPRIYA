@@ -122,7 +122,7 @@ export default function Hero() {
               <div className="w-80 h-80 rounded-full p-1 bg-gradient-to-r from-teal-500 via-violet-500 to-pink-500">
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-slate-900">
                   <img
-                    src='/public/profile.PNG'
+                    src='/profile.PNG'
                     alt="Krishna Priya"
                     className="w-full h-full object-cover"
                   />
