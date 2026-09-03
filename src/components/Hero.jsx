@@ -22,7 +22,7 @@ export default function EditorialBanner() {
           S E
         </div>
 
-        <div className="pointer-events-none absolute -bottom-16 -left-8 select-none font-sans text-[8rem] font-black leading-none tracking-[-0.16em] text-[#53615b] sm:text-[19rem] lg:text-[27rem]">
+        <div className="pointer-events-none absolute -bottom-16 -left-8 select-none font-sans text-[18rem] font-black leading-none tracking-[-0.16em] text-[#53615b] sm:text-[19rem] lg:text-[27rem]">
           CODE
         </div>
 
