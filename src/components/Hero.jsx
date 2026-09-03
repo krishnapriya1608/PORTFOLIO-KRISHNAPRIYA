@@ -18,11 +18,11 @@ export default function EditorialBanner() {
 
       <section className="relative min-h-screen overflow-hidden px-7 py-8 sm:px-12 sm:py-12 lg:px-20">
         {/* Giant cropped background letters */}
-        <div className="pointer-events-none absolute -right-10 top-[10%] select-none font-sans text-[18rem] font-black leading-[0.72] tracking-[-0.16em] text-[#53615b] sm:text-[28rem] lg:text-[34rem]">
+        <div className="pointer-events-none absolute -right-10 top-[10%] select-none font-sans text-[12rem] font-black leading-[0.72] tracking-[-0.16em] text-[#53615b] sm:text-[20rem] lg:text-[27rem]">
           S E
         </div>
 
-        <div className="pointer-events-none absolute -bottom-16 -left-8 select-none font-sans text-[18rem] font-black leading-none tracking-[-0.16em] text-[#53615b] sm:text-[19rem] lg:text-[27rem]">
+        <div className="pointer-events-none absolute -bottom-16 -left-8 select-none font-sans text-[12rem] font-black leading-none tracking-[-0.16em] text-[#53615b] sm:text-[16rem] lg:text-[24rem]">
           CODE
         </div>
 
@@ -34,7 +34,7 @@ export default function EditorialBanner() {
               <Rule />
 
               <p className="font-sans text-[20px] font-semibold leading-relaxed tracking-[0.28em] text-[#514d46]">
-                FUll Stack
+                Full Stack
                 <br />
                 Developer
               </p>
