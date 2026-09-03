@@ -1,102 +1,170 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { data } from '../data'
-import { ExternalLink, Github, Layers } from 'lucide-react'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { data } from "../data";
+import { ExternalLink, Github, Layers } from "lucide-react";
 
 const colorMap = {
-  teal: { border: 'border-teal-500/30', glow: 'hover:shadow-teal-500/20', badge: 'bg-teal-500/10 text-teal-400', icon: 'text-teal-400', dot: 'bg-teal-500' },
-  violet: { border: 'border-violet-500/30', glow: 'hover:shadow-violet-500/20', badge: 'bg-violet-500/10 text-violet-400', icon: 'text-violet-400', dot: 'bg-violet-500' },
-  pink: { border: 'border-pink-500/30', glow: 'hover:shadow-pink-500/20', badge: 'bg-pink-500/10 text-pink-400', icon: 'text-pink-400', dot: 'bg-pink-500' },
-}
+  teal: {
+    accent: "bg-[#52615b]",
+    text: "text-[#52615b]",
+    border: "border-[#52615b]/35",
+  },
+  violet: {
+    accent: "bg-[#776c5d]",
+    text: "text-[#776c5d]",
+    border: "border-[#776c5d]/35",
+  },
+  pink: {
+    accent: "bg-[#9a6d60]",
+    text: "text-[#9a6d60]",
+    border: "border-[#9a6d60]/35",
+  },
+};
 
 function ProjectCard({ project, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-  const c = colorMap[project.color]
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const color = colorMap[project.color] || colorMap.teal;
 
   return (
-    <motion.div
+    <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 36 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.15, duration: 0.6 }}
-      whileHover={{ y: -6, transition: { duration: 0.2 } }}
-      className={`glass rounded-2xl border ${c.border} p-6 flex flex-col gap-4 hover:shadow-xl ${c.glow} transition-all duration-300 cursor-default`}
+      transition={{ delay: index * 0.12, duration: 0.65 }}
+      whileHover={{ y: -8 }}
+      className={`group relative flex min-h-[470px] flex-col overflow-hidden border ${color.border} bg-[#eee4d4] p-5 shadow-[7px_9px_0_rgba(62,54,43,.12)] transition-shadow duration-300 hover:shadow-[11px_15px_0_rgba(62,54,43,.18)]`}
     >
-      <div className="flex items-start justify-between">
-        <div className={`w-10 h-10 rounded-xl ${c.badge} flex items-center justify-center`}>
-          <Layers size={18} className={c.icon} />
+      {/* Card number */}
+      <span className="absolute right-5 top-4 font-sans text-[10px] tracking-[0.2em] text-[#746b5e]">
+        0{index + 1}
+      </span>
+
+      <div className="mb-5 flex items-center justify-between">
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-full border ${color.border} ${color.text}`}
+        >
+          <Layers size={17} strokeWidth={1.4} />
         </div>
-        <div className="flex gap-3">
+
+        <div className="flex gap-3 text-[#73695d]">
           {project.github && (
-            <motion.a href={project.github} whileHover={{ scale: 1.2, color: '#fff' }} className="text-slate-500 hover:text-white transition-colors">
-              <Github size={16} />
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.15 }}
+              className="transition-colors hover:text-[#292721]"
+              aria-label={`${project.name} GitHub repository`}
+            >
+              <Github size={17} strokeWidth={1.5} />
             </motion.a>
           )}
+
           {project.live && (
-            <motion.a href={project.live} whileHover={{ scale: 1.2, color: '#2dd4bf' }} className="text-slate-500 hover:text-teal-400 transition-colors">
-              <ExternalLink size={16} />
+            <motion.a
+              href={project.live}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.15 }}
+              className={`transition-colors hover:${color.text}`}
+              aria-label={`View ${project.name} live`}
+            >
+              <ExternalLink size={17} strokeWidth={1.5} />
             </motion.a>
           )}
         </div>
       </div>
 
-      <div>
-        <>
-          {project.image && (
-            <div className="overflow-hidden rounded-xl">
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-48 object-cover rounded-xl transition-transform duration-500 hover:scale-105"
-              />
-            </div>
-          )}
+      {project.image && (
+        <div className="mb-5 h-48 overflow-hidden bg-[#cdbda8]">
+          <img
+            src={project.image}
+            alt={project.name}
+            className="h-full w-full object-cover sepia-[0.22] contrast-[0.9] brightness-[0.94] transition duration-700 group-hover:scale-105"
+          />
+        </div>
+      )}
 
-          <div>
-            <h3 className="text-white font-semibold text-base mb-2">
-              {project.name}
-            </h3>
+      <div className="flex flex-1 flex-col">
+        <div className={`mb-3 h-px w-8 ${color.accent}`} />
 
-            <p className="text-slate-400 text-sm leading-relaxed">
-              {project.desc}
-            </p>
-          </div>
-        </>
+        <h3 className="mb-3 font-serif text-3xl leading-[0.95] tracking-wide text-[#292721]">
+          {project.name}
+        </h3>
+
+        <p className="max-w-sm font-sans text-sm leading-relaxed text-[#655d52]">
+          {project.desc}
+        </p>
       </div>
 
-      <div className="flex flex-wrap gap-2 mt-auto pt-2">
-        {project.stack.map(tech => (
-          <span key={tech} className={`text-xs font-mono px-2.5 py-1 rounded-lg ${c.badge}`}>
+      <div className="mt-6 flex flex-wrap gap-2 border-t border-[#786d5e]/25 pt-4">
+        {project.stack.map((tech) => (
+          <span
+            key={tech}
+            className="font-sans text-[10px] uppercase tracking-[0.13em] text-[#62594e]"
+          >
             {tech}
           </span>
         ))}
       </div>
-    </motion.div>
-  )
+    </motion.article>
+  );
 }
 
 export default function Projects() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
   return (
-    <section id="projects" className="py-24 max-w-6xl mx-auto px-6">
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-[#e8ddca] px-6 py-24 text-[#292721] sm:px-12 lg:px-20"
+    >
+      {/* Oversized background lettering */}
+      <div className="pointer-events-none absolute -right-6 top-4 select-none font-sans text-[11rem] font-black leading-none tracking-[-0.14em] text-[#52615b]/15 sm:text-[18rem]">
+        WORK
+      </div>
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-multiply"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(75, 61, 44, .3) .65px, transparent .8px)",
+          backgroundSize: "7px 7px",
+        }}
+      />
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        className="text-center mb-16"
+        transition={{ duration: 0.65 }}
+        className="relative mx-auto mb-16 flex max-w-6xl flex-col justify-between gap-8 md:flex-row md:items-end"
       >
-        <p className="font-mono text-teal-400 text-sm tracking-widest mb-3">03. WHAT I'VE BUILT</p>
-        <h2 className="text-4xl font-bold text-white">Projects</h2>
-        <div className="w-16 h-px bg-gradient-to-r from-teal-500 to-violet-500 mx-auto mt-4" />
+        <div>
+          <p className="mb-4 font-sans text-[10px] font-semibold tracking-[0.3em] text-[#52615b]">
+            03. SELECTED WORK
+          </p>
+          <div className="mb-5 h-px w-8 bg-[#6e665b]/60" />
+          <h2 className="font-serif text-5xl leading-[0.85] tracking-wide sm:text-7xl">
+            Things I’ve
+            <br />
+            built.
+          </h2>
+        </div>
+
+        <p className="max-w-xs border-l border-[#6e665b]/45 pl-4 font-serif text-sm italic leading-relaxed text-[#625b50]">
+          A collection of digital products, thoughtful interfaces, and systems
+          made to solve real problems.
+        </p>
       </motion.div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.projects.map((p, i) => (
-          <ProjectCard key={i} project={p} index={i} />
+
+      <div className="relative mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {data.projects.map((project, index) => (
+          <ProjectCard key={project.name} project={project} index={index} />
         ))}
       </div>
     </section>
-  )
+  );
 }

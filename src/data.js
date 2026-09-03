@@ -5,7 +5,7 @@ export const data = {
   name: "Krishnapriya ",
   role: "Full Stack Developer",
   tagline: "Building scalable web experiences with React, Node.js & Python",
-  location: "Kochi, Kerala",
+  location: "Pune, Maharashtra, India",
   email: "rishnak10@gmail.com",
   phone: "+91 6282488490",
   linkedin: "https://www.linkedin.com/in/krishnapriy4/",
@@ -21,7 +21,7 @@ export const data = {
 
   experience: [
     {
-      role: "Apprenticeship Trainee",
+      role: "Full Stack Developer",
       company: "Airpay",
       period: "Feb 2025 – April 2026",
       image: airpay,
@@ -76,6 +76,15 @@ export const data = {
       color: "teal"
     },
     {
+      name: "SafeHer",
+      desc: "Women’s Safety & Assistance Platform: Built a full-stack React and Node.js safety application with LLM-powered AI assistance, fake-call functionality, real-time SOS alerts, and live GPS tracking. Supported 20+ concurrent users with sub-2-second emergency alert latency, validated through testing with 25 users.",
+      stack: ["LLM", "Node.js", "React.js","MongoDB","Socket.io", "JavaScript", "REST API", "CSS3", "HTML5"],
+
+      live: "https://safe-her-6mim.vercel.app/",
+      github: null,
+      color: "teal"
+    },
+    {
       name: "Restaurant Management System",
       desc: "Full-stack app with dynamic menu CRUD, table reservation system, revenue tracking, i18n multi-language support, and semantic search.",
       stack: ["React", "Node.js", "MongoDB", "Express", "i18n", "Razorpay API", "CSS3", "Tailwind CSS", "Socket.io", "Google Login API", "Nodemailer", "JWT Auth"],
@@ -106,6 +115,7 @@ export const data = {
     { name: "Python Full Stack Development", org: "NSDC, Illinois", period: "Jul 2025 – Feb 2026" },
     { name: "MERN Stack Development", org: "Luminar Technolab, Kochi", period: "Jan 2025" },
     { name: "NACTET Certificate", org: "National Assessment", period: "Jan 2025" },
+    { name: "1 Million Prompters ProgramDubai Centre for Artificial Intelligence ", org: "Dubai Govt", period: "July 2026" },
   ],
 
   education: {

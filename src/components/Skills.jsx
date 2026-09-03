@@ -1,80 +1,150 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { data } from '../data'
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { data } from "../data";
 
-const categoryColors = {
-  "Languages": "from-teal-500 to-teal-400",
-  "Frontend": "from-violet-500 to-violet-400",
-  "Backend": "from-pink-500 to-pink-400",
-  "Database": "from-amber-500 to-amber-400",
-  "Tools": "from-blue-500 to-blue-400",
-  "Concepts": "from-emerald-500 to-emerald-400",
-}
-
-const categoryBg = {
-  "Languages": "bg-teal-500/10 text-teal-400 border-teal-500/20",
-  "Frontend": "bg-violet-500/10 text-violet-400 border-violet-500/20",
-  "Backend": "bg-pink-500/10 text-pink-400 border-pink-500/20",
-  "Database": "bg-amber-500/10 text-amber-400 border-amber-500/20",
-  "Tools": "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  "Concepts": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-}
+const categoryStyles = {
+  Languages: {
+    number: "01",
+    accent: "bg-[#52615b]",
+    text: "text-[#52615b]",
+    border: "border-[#52615b]/35",
+  },
+  Frontend: {
+    number: "02",
+    accent: "bg-[#796e5f]",
+    text: "text-[#796e5f]",
+    border: "border-[#796e5f]/35",
+  },
+  Backend: {
+    number: "03",
+    accent: "bg-[#95685c]",
+    text: "text-[#95685c]",
+    border: "border-[#95685c]/35",
+  },
+  Database: {
+    number: "04",
+    accent: "bg-[#96794f]",
+    text: "text-[#96794f]",
+    border: "border-[#96794f]/35",
+  },
+  Tools: {
+    number: "05",
+    accent: "bg-[#5d7278]",
+    text: "text-[#5d7278]",
+    border: "border-[#5d7278]/35",
+  },
+  Concepts: {
+    number: "06",
+    accent: "bg-[#68745b]",
+    text: "text-[#68745b]",
+    border: "border-[#68745b]/35",
+  },
+};
 
 function SkillGroup({ category, skills, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-40px' })
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const style = categoryStyles[category] || categoryStyles.Languages;
 
   return (
-    <motion.div
+    <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="glass rounded-2xl p-5"
+      transition={{ delay: index * 0.1, duration: 0.55 }}
+      className={`group relative min-h-56 border ${style.border} bg-[#eee4d4] p-6 shadow-[6px_8px_0_rgba(62,54,43,.1)] transition-shadow hover:shadow-[10px_12px_0_rgba(62,54,43,.16)]`}
     >
-      <div className={`inline-flex items-center gap-2 text-xs font-mono font-medium px-3 py-1 rounded-full border mb-4 ${categoryBg[category]}`}>
-        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${categoryColors[category]}`} />
+      <span className="absolute right-5 top-5 font-sans text-[10px] tracking-[0.2em] text-[#8a7e6e]">
+        {style.number}
+      </span>
+
+      <div className={`mb-5 h-px w-8 ${style.accent}`} />
+
+      <h3 className="mb-6 font-serif text-3xl leading-none tracking-wide text-[#292721]">
         {category}
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill, i) => (
+      </h3>
+
+      <div className="flex flex-wrap gap-x-3 gap-y-3 border-t border-[#786d5e]/25 pt-5">
+        {skills.map((skill, skillIndex) => (
           <motion.span
             key={skill}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: index * 0.1 + i * 0.05 + 0.2 }}
-            whileHover={{ scale: 1.08, transition: { duration: 0.15 } }}
-            className="text-sm text-slate-300 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700/50 hover:border-slate-500/50 cursor-default transition-colors"
+            initial={{ opacity: 0, y: 8 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              delay: index * 0.1 + skillIndex * 0.05 + 0.2,
+              duration: 0.35,
+            }}
+            whileHover={{ y: -2 }}
+            className={`cursor-default border-b ${style.border} pb-1 font-sans text-xs tracking-[0.04em] text-[#625b50] transition-colors hover:${style.text}`}
           >
             {skill}
           </motion.span>
         ))}
       </div>
-    </motion.div>
-  )
+    </motion.article>
+  );
 }
 
 export default function Skills() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
   return (
-    <section id="skills" className="py-24 max-w-5xl mx-auto px-6">
+    <section
+      id="skills"
+      className="relative overflow-hidden bg-[#e8ddca] px-6 py-24 text-[#292721] sm:px-12 lg:px-20"
+    >
+      {/* Decorative background lettering */}
+      <div className="pointer-events-none absolute -right-5 top-0 select-none font-sans text-[10rem] font-black leading-none tracking-[-0.15em] text-[#52615b]/15 sm:text-[17rem]">
+        TOOLS
+      </div>
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-multiply"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(75, 61, 44, .3) .65px, transparent .8px)",
+          backgroundSize: "7px 7px",
+        }}
+      />
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        className="text-center mb-16"
+        transition={{ duration: 0.65 }}
+        className="relative mx-auto max-w-5xl"
       >
-        <p className="font-mono text-teal-400 text-sm tracking-widest mb-3">04. WHAT I WORK WITH</p>
-        <h2 className="text-4xl font-bold text-white">Skills</h2>
-        <div className="w-16 h-px bg-gradient-to-r from-teal-500 to-violet-500 mx-auto mt-4" />
+        <header className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <p className="mb-4 font-sans text-[10px] font-semibold tracking-[0.3em] text-[#52615b]">
+              04. WHAT I WORK WITH
+            </p>
+            <div className="mb-5 h-px w-8 bg-[#6e665b]/60" />
+            <h2 className="font-serif text-5xl leading-[0.84] tracking-wide sm:text-7xl">
+              Tools of
+              <br />
+              the trade.
+            </h2>
+          </div>
+
+          <p className="max-w-xs border-l border-[#6e665b]/45 pl-4 font-serif text-sm italic leading-relaxed text-[#625b50]">
+            A practical toolkit for shaping reliable software and thoughtful
+            digital experiences.
+          </p>
+        </header>
+
+        <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {Object.entries(data.skills).map(([category, skills], index) => (
+            <SkillGroup
+              key={category}
+              category={category}
+              skills={skills}
+              index={index}
+            />
+          ))}
+        </div>
       </motion.div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {Object.entries(data.skills).map(([cat, skills], i) => (
-          <SkillGroup key={cat} category={cat} skills={skills} index={i} />
-        ))}
-      </div>
     </section>
-  )
+  );
 }
