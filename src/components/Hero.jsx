@@ -42,9 +42,8 @@ export default function EditorialBanner() {
               <Rule />
 
               <p className="font-sans text-[10px] font-semibold leading-relaxed tracking-[0.28em] text-[#514d46]">
-                Junior
-                <br />
-                Developer
+                
+                Krishnapriya c s
               </p>
 
             
