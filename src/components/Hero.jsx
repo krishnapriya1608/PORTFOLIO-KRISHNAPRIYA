@@ -1,4 +1,5 @@
 import React from "react";
+import photo from "../assets/Krishna.png"
 
 const Rule = () => <div className="h-px w-8 bg-[#6e665b]/55" />;
 
@@ -63,9 +64,9 @@ export default function EditorialBanner() {
           <div className="relative flex min-h-[500px] items-end justify-center md:col-span-8 md:min-h-0">
             <div className="relative z-10 h-[510px] w-[78%] max-w-md overflow-hidden border border-[#7a6e5f]/25 bg-[#c6b49f] shadow-[14px_18px_36px_rgba(56,45,33,.24)] sm:h-[620px]">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=85&w=1200"
                 alt="Editorial portrait outdoors"
                 className="h-full w-full object-cover object-center sepia-[0.3] contrast-[0.9] brightness-[0.93]"
+                src={photo}
               />
               <div className="pointer-events-none absolute inset-0 bg-[#9c7653]/10 mix-blend-multiply" />
             </div>
