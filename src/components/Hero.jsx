@@ -41,7 +41,7 @@ export default function EditorialBanner() {
 
               <Rule />
 
-              <p className="font-sans text-[10px] font-semibold leading-relaxed tracking-[0.28em] text-[#514d46]">
+              <p className="font-sans text-[25px] font-semibold leading-relaxed tracking-[0.28em] text-[#514d46]">
                 
                 Krishnapriya c s
               </p>

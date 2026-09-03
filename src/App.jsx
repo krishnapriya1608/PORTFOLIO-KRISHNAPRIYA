@@ -7,6 +7,7 @@ import Skills from './components/Skills'
 import CertsEdu from './components/CertsEdu'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import About from './components/About'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       
       <Hero />
       <Stats />
+      <About />
       <Experience />
       <Projects />
       <Skills />
