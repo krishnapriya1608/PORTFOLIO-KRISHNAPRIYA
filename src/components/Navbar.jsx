@@ -49,14 +49,7 @@ export default function Navbar() {
             </motion.li>
           ))}
         </ul>
-        <motion.a
-          href="mailto:rishnak10@gmail.com"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="hidden md:block text-xs font-mono px-4 py-2 rounded-lg border border-teal-500/50 text-teal-400 hover:bg-teal-500/10 transition-colors"
-        >
-          Hire me
-        </motion.a>
+       
       </div>
     </motion.nav>
   )
