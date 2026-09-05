@@ -158,7 +158,7 @@ export default function EditorialBanner() {
                   Core Stack
                 </p>
                 <p>MongoDB, Express</p>
-                <p>React, Node.js</p>
+                <p>React, Node.js,Python,Django</p>
               </div>
               <div className="gsap-specs gsap-fade border-l border-[#7a6e5f]/30 pl-4 space-y-1">
                 <p className="font-semibold uppercase text-[10px] text-[#292721]">
