@@ -78,10 +78,19 @@ export const data = {
     {
       name: "SafeHer",
       desc: "Women’s Safety & Assistance Platform: Built a full-stack React and Node.js safety application with LLM-powered AI assistance, fake-call functionality, real-time SOS alerts, and live GPS tracking. Supported 20+ concurrent users with sub-2-second emergency alert latency, validated through testing with 25 users.",
-      stack: ["LLM", "Node.js", "React.js","MongoDB","Socket.io", "JavaScript", "REST API", "CSS3", "HTML5"],
+      stack: ["LLM", "Node.js", "React.js", "MongoDB", "Socket.io", "JavaScript", "REST API", "CSS3", "HTML5"],
 
       live: "https://safe-her-6mim.vercel.app/",
-      github: null,
+      github: "https://github.com/krishnapriya1608/SafeHer",
+      color: "teal"
+    },
+    {
+      name: "CodeBase AI",
+      desc: "AI code assistant that lets you ask questions about a codebase in plain English. Users upload ZIP archives or import a GitHub repository, then use semantic search and streaming chat to get answers grounded in the project's own files, along with per-project chat history, analysis and summaries. Built with a React frontend, a Node/Express API with MongoDB and JWT authentication with email OTP verification, and a separate Python FastAPI service that creates embeddings with sentence-transformers and retrieves with ChromaDB. Containerised with Docker Compose and deployed on AWS EC2, with Caddy providing HTTPS and reverse proxying.",
+      stack: ["AWS", "Docker", "Python", "Node.js", "React.js", "MongoDB", "Socket.io", "JavaScript", "REST API", "CSS3", "HTML5", "Tailwind CSS"],
+
+      live: "https://codebase-ai.duckdns.org/",
+      github: "https://github.com/krishnapriya1608/Github",
       color: "teal"
     },
     {
