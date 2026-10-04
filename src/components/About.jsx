@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Coffee, Sparkles } from "lucide-react";
+import { Code2, Coffee, Sparkles, ArrowUpRight } from "lucide-react";
+import { data } from "../data";
 
 const details = [
   {
@@ -19,6 +20,9 @@ const details = [
     text: "I’m curious by nature, always exploring better ways to create, solve problems, and make technology feel more human.",
   },
 ];
+
+const linkClass =
+  "inline-flex items-center gap-1.5 border border-[#786d5e]/45 px-4 py-2 font-sans text-xs font-semibold text-[#292721] transition hover:bg-[#292721] hover:text-[#e8ddca]";
 
 export default function About() {
   const ref = useRef(null);
@@ -69,6 +73,7 @@ export default function About() {
         </header>
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-20">
+          {/* Left column */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -76,7 +81,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <p className="mb-6 font-serif text-3xl leading-[1.15] text-[#292721] sm:text-4xl">
-              I’m Krishnapriya, a software engineer who enjoys building
+              I’m {data.name.trim()}, a software engineer who enjoys building
               digital products that are clear, useful, and enjoyable to use.
             </p>
 
@@ -86,8 +91,28 @@ export default function About() {
               to the last. Whether I’m working on a feature, an interface, or
               a larger system, I care about writing code that lasts.
             </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={data.github}
+                target="_blank"
+                rel="noreferrer"
+                className={linkClass}
+              >
+                GitHub <ArrowUpRight size={14} />
+              </a>
+              <a
+                href={data.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className={linkClass}
+              >
+                LinkedIn <ArrowUpRight size={14} />
+              </a>
+            </div>
           </motion.div>
 
+          {/* Right column */}
           <div className="space-y-4">
             {details.map(({ icon: Icon, title, text }, index) => (
               <motion.article

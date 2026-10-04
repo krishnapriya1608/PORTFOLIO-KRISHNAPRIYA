@@ -8,7 +8,7 @@ export const data = {
   location: "Pune, Maharashtra, India",
   email: "rishnak10@gmail.com",
   phone: "+91 6282488490",
-  linkedin: "https://www.linkedin.com/in/krishnapriy4/",
+  linkedin: "https://www.linkedin.com/in/krishnapriya-developer/",
   github: "https://github.com/krishnapriya1608",
 
 
@@ -116,7 +116,7 @@ export const data = {
     "Frontend": ["React.js", "HTML5", "CSS3", "Responsive Design", 'Tailwind CSS', 'Bootstrap', 'Material UI', 'Next.js'],
     "Backend": ["Node.js", "Express.js", "REST APIs", "Laravel", "ASP.NET"],
     "Database": ["MongoDB", "SQL", "DBMS"],
-    "Tools": ["Git", "GitHub", "GitLab", "Postman", "VS Code"],
+    "Tools": ["Git", "GitHub", "GitLab", "Postman", "VS Code","AWS","Docker", "Caddy", "Nginx"],
     "Concepts": ["JWT Auth", "MVC", "CI/CD", "DSA", "OS", "Networks", 'Socket.io'],
   },
 
