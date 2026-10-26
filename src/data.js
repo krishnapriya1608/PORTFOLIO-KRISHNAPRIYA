@@ -84,6 +84,15 @@ export const data = {
       github: "https://github.com/krishnapriya1608/SafeHer",
       color: "teal"
     },
+     {
+      name: "Prompt2app",
+      desc: "Developed Prompt2App, an AI-powered platform that generates functional websites from natural-language prompts using Google Gemini. Users can customize designs through prompts, manage version history, preview responsive layouts, download source code as ZIP files, and publish websites with a shareable link.",
+      stack: ["Angular", "Node.js", "MongoDB", "Google Gemini API", "Docker", "AWS", "Caddy", "DuckDNS", "HTTPS"],
+
+      live: "https://myprompt2app.duckdns.org/",
+      github: "https://github.com/krishnapriya1608/No-code",
+      color: "teal"
+    },
     {
       name: "CodeBase AI",
       desc: "AI code assistant that lets you ask questions about a codebase in plain English. Users upload ZIP archives or import a GitHub repository, then use semantic search and streaming chat to get answers grounded in the project's own files, along with per-project chat history, analysis and summaries. Built with a React frontend, a Node/Express API with MongoDB and JWT authentication with email OTP verification, and a separate Python FastAPI service that creates embeddings with sentence-transformers and retrieves with ChromaDB. Containerised with Docker Compose and deployed on AWS EC2, with Caddy providing HTTPS and reverse proxying.",
